@@ -130,16 +130,3 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-MATHJAX_ENABLED=True
-# MATHJAX_CONFIG_FILE = "static/config/mathjax.js"
-
-# MATHJAX_CONFIG_DATA = {
-#   "tex2jax": {
-#     "inlineMath":
-#       [
-#           ['$','$'],
-#           ['\\(','\\)']
-#       ]
-#   }
-# }
