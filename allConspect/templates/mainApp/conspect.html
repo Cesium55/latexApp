@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ conspect }}</title>
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<h1>{{ conspect }}</h1>
+
+<div class="maintable">
+    {% if not formulas %}
+    <h2>Nothing here</h2>
+    {% endif %}
+  {% for formula in formulas %}
+    <div class="row">
+      <div><p class="formula_name">{{ formula.name }}</p></div>
+      <p class="formula">{{ formula.body }}</p>
+    </div>
+  {% endfor %}
+
+
+    <form action="" class="formulaCreate" method="post">
+        {% csrf_token %}
+<!--        <input type="text" name="name">-->
+<!--        <label for="name">Name</label>-->
+<!--        <br>-->
+
+<!--        <input type="text" name="body">-->
+<!--        <label for="body">Formula</label>-->
+<!--        <br>-->
+
+<!--        <input type="checkbox" name="isLatex">-->
+<!--        <label for="isLatex">isLatex</label>-->
+<!--        <br>-->
+
+        {{ form.as_p }}
+
+        <button type="submit">Create</button>
+    </form>
+
+
+</div>
+
+{% if error %}
+    <p style="color:red">{{ error }}</p>
+{% endif %}
+
+
+
+
+<link rel="stylesheet" href="{% static 'css/matjax.css' %}?version=1">
+
+<style>
+    .MJXc-display{
+        display:inline-block;
+        font-size:20px;
+        text-align: center;
+    }
+    .formula{
+        text-align: center;
+        display:inline-block;
+    }
+    .row{
+        display:flex;
+    }
+    .formula_name{
+        vertical-align: middle;
+        display:inline-block;
+    }
+    .formulaCreate{
+        margin-down:30px
+    }
+</style>
+</body>
+</html>

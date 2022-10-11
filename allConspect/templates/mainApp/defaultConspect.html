@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+{% load mathjax %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Default Conspect</title>
+<!--    {% mathjax_scripts %}-->
+
+    <script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<h1>Default Conspect</h1>
+<div class = "formula">$$2x + 4y^2 = \frac{4\pi^3}{N_z}$$</div>
+{% for cat in cats %}
+<h2>{{ cat }}</h2>
+
+{% for conspect in conspects %}
+{% if conspect.parent == cat %}
+<a href="{{ conspect.id }}/">{{ conspect }}</a>
+{% endif %}
+{% endfor %}
+
+{% endfor %}
+
+
+
+<fieldset style="display:inline-block">
+  <legend>Первый замечательный предел</legend>
+    <p class="formula">{{ test_latex_formula.body }}</p>
+</fieldset>
+
+
+
+<style>
+    .MJXc-display{
+        display:inline-block;
+        font-size:20px;
+        text-align: center;
+    }
+    .formula{
+        text-align: center;
+    }
+</style>
+</body>
+</html>

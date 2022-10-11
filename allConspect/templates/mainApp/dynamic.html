@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic</title>
+<script id="MathJax-script" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--    <script  src="{% static 'js/Mathjax/Mathjax.js' %}"></script>-->
+</head>
+<body>
+<h1>$$ 5x+4 $$</h1>
+<h1 id="formulaScreen" class="formula"></h1>
+<br>
+<input type="text" name="formulaInput" id="formulaInput">
+
+
+<script>
+console.log(MathJax)
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/CommonHTML"],
+  });
+
+
+
+  screen = document.getElementById("formulaScreen")
+  inp = document.getElementById("formulaInput")
+
+  inp.addEventListener('keyup', function (e) {
+  screen.innerHTML ="$$ " +  inp.value + " $$"
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, "fomulaScreen"])
+})
+
+
+
+</script>
+
+
+<style>
+    .MJXc-display{
+        display:inline-block;
+        font-size:20px;
+        text-align: center;
+    }
+    .formula{
+        text-align: center;
+        display:inline-block;
+        max-height:100px;
+        min-height:100px;
+    }
+    .row{
+        display:flex;
+    }
+    .formula_name{
+        vertical-align: middle;
+        display:inline-block;
+    }
+    .formulaCreate{
+        margin-down:30px
+    }
+</style>
+</body>
+</html>
