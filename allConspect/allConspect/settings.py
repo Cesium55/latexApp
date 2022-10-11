@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usersApp',
     'mainApp',
-    'django_mathjax',
 ]
 
 MIDDLEWARE = [
